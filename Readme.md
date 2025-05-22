@@ -48,21 +48,10 @@ A full-stack MERN (MongoDB, Express, React, Node.js) application for tracking ex
    - Start backend:
      ```bash
      cd backend
-     npm start
+     npm node index.js
      ```
    - Start frontend:
      ```bash
      cd ../frontend
-     npm start
+     npm run dev
      ```
-
-## Features
-
-- User authentication
-- Add, edit, delete expenses
-- View expense history
-- Responsive UI
-
-## License
-
-MIT
