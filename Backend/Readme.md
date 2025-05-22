@@ -7,7 +7,7 @@ This repository contains the backend API for the Expense Tracker application.
 1. Clone the repository.
 2. Install dependencies with `npm install`.
 3. Set up environment variables as described in `.env.example`.
-4. Start the server with `npm start`.
+4. Start the server with `node index.js`.
 
 ## License
 
