@@ -38,23 +38,22 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Tried to implement edit feature
-
-// router.put("/:id"),
-//   async (req, res) => {
-//     const { description, amount, category, type } = req.body;
-//     const id = req.params.id;
-//     try {
-//       await Expense.findByIdAndUpdate(id, {
-//         description,
-//         amount,
-//         category,
-//         type,
-//       });
-//       res.send("Expense updated");
-//     } catch (err) {
-//       res.status(500).send("Server Error");
-//     }
-//   };
-
+router.put("/:id", async (req, res) => {
+  const { description, amount, category, type } = req.body;
+  try {
+    console.log("PUT");
+    const expense = await Expense.findById(req.params.id);
+    if (!expense) {
+      return res.status(404).send("Expense not found");
+    }
+    expense.description = description;
+    expense.amount = amount;
+    expense.category = category;
+    expense.type = type;
+    await expense.save();
+    res.json(expense);
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+});
 module.exports = router;
